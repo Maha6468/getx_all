@@ -6,9 +6,11 @@ import 'package:provider/provider.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("Maha");
     final provider = context.watch<CounterProvider>();
 
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Counter App"),
         centerTitle: true,
@@ -18,6 +20,7 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start, // 🔥 উপরে রাখবে
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+
           SizedBox(height: 10), // 👈 একটু gap (optional)
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -26,6 +29,7 @@ class HomeScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   context.read<CounterProvider>().decrement();
+                  print("majala");
                 },
                 child: Icon(Icons.remove),
               ),
@@ -44,6 +48,7 @@ class HomeScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   context.read<CounterProvider>().increment();
+                  print("Rahman");
                 },
                 child: Icon(Icons.add),
               ),
