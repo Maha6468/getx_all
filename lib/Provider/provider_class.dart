@@ -14,9 +14,11 @@ class CounterProvider extends ChangeNotifier {
   }
 
   void decrement() {
-    _count--;
-    _history.add(_count);
-    notifyListeners(); // UI update
+    if(_count>0) {
+      _count--;
+      _history.add(_count);
+      notifyListeners();
+    }
   }
 
   void clearAll() {
