@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
 
                 return Center(
                   child: Text(
-                    provider.history[reversedIndex].toString(),
+                    "Last Update: ${provider.history[reversedIndex].toString()}",
                     style: TextStyle(fontSize: 20),
                   ),
                 );
