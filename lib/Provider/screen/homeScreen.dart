@@ -80,7 +80,7 @@
 
 /// consumer diye kora ,,uporer ta watch diye kora
 import 'package:flutter/material.dart';
-import 'package:getx_all/Provider/provider_class.dart';
+import 'package:getx_all/Provider/changeNotifier/provider_class.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
