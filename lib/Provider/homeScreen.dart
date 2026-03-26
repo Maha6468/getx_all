@@ -1,4 +1,4 @@
-//
+
 // import 'package:flutter/material.dart';
 // import 'package:getx_all/Provider/provider_class.dart';
 // import 'package:provider/provider.dart';
@@ -79,7 +79,6 @@
 
 
 /// consumer diye kora ,,uporer ta watch diye kora
-
 import 'package:flutter/material.dart';
 import 'package:getx_all/Provider/provider_class.dart';
 import 'package:provider/provider.dart';
@@ -114,8 +113,6 @@ class HomeScreen extends StatelessWidget {
               SizedBox(width: 20),
               Consumer<CounterProvider>(
                 builder: (context, provider, child) {
-                  //print("🔥 Only Text rebuild hocche");
-
                   return Text(
                     provider.count.toString(),
                     style: TextStyle(fontSize: 40),
@@ -133,46 +130,33 @@ class HomeScreen extends StatelessWidget {
 
             ],
           ),
-          //Expanded(
-            // child:  ListView.builder(
-            //   itemCount: provider.history.length,
-            //   itemBuilder: (context, index) {
-            //     final reversedIndex =
-            //         provider.history.length - 1 - index;
-            //     return Center(
-            //       child: Text(
-            //         "Last Update: ${provider.history[reversedIndex].toString()}",
-            //         style: TextStyle(fontSize: 20),
-            //       ),
-            //     );
-            //   },
-            // ),
-            Expanded(
-              child: Consumer<CounterProvider>(
-                builder: (context, provider, child) {
-                  return ListView.builder(
-                    itemCount: provider.history.length,
-                    itemBuilder: (context, index) {
-                      final reversedIndex =
-                          provider.history.length - 1 - index;
 
-                      return Text(
-                        "Last Update: ${provider.history[reversedIndex]}",
-                      );
-                    },
-                  );
-                },
+            Expanded(
+                child: Consumer<CounterProvider>(
+                  builder: (context, provider, child) {
+                    return ListView.builder(
+                      itemCount: provider.history.length,
+                      itemBuilder: (context, index) {
+                        final reversedIndex =
+                            provider.history.length - 1 - index;
+                        return Center(
+                          child: Text("Last Update: ${provider.history[reversedIndex]}",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-         // ),
-          ElevatedButton(
-            onPressed: () {
+
+
+          ElevatedButton(onPressed: () {
               context.read<CounterProvider>().clearAll();
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
-            ),
-            child: Text("Clear"),
+            ), child: Text("Clear"),
           ),
           SizedBox(height: 30,)
         ],

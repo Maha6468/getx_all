@@ -6,12 +6,12 @@ import 'package:provider/provider.dart';
 
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => CounterProvider(),
-      child: MyApp(),
-    ),
-  );
+  // runApp(
+  //   ChangeNotifierProvider(
+  //     create: (_) => CounterProvider(),
+  //     child: MyApp(),
+  //   ),);
+      runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //home:HomeScreen(),
-      home:HomeScreen(),
+      home: ChangeNotifierProvider(
+        create: (_) => CounterProvider(),
+        child:HomeScreen(),),
       debugShowCheckedModeBanner: false,
+
     );
   }
 }
