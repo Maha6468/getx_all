@@ -33,7 +33,9 @@ class TodoScreen extends StatelessWidget {
                 ElevatedButton(onPressed: () {
                     context.read<TodoProvider>().addTask(controller.text);
                     controller.clear();
-                  },child: Icon(Icons.add),
+                  },style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red
+                ),child: Icon(Icons.add,color: Colors.white,),
                 )
               ],
             ),
@@ -54,11 +56,12 @@ class TodoScreen extends StatelessWidget {
                   itemCount: provider.tasks.length,
                   itemBuilder: (context, index) {
                     return Card(
+                      elevation: 5,
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       child: ListTile(
                         title: Text(provider.tasks[index]),
                         trailing: IconButton(
-                          icon: Icon(Icons.delete, color: Colors.red),
+                          icon: Icon(Icons.delete, color: Colors.red,size: 30,),
                           onPressed: () {
                             context.read<TodoProvider>().removeTask(index);
                           },
